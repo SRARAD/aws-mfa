@@ -12,12 +12,25 @@ The concept behind **aws-mfa** is that there are 2 types of credentials:
 
 If you haven't yet enabled multi-factor authentication for AWS API access, check out the [AWS article](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html) on doing so.
 
+Prerequisites:
+- python >= 3.7
+- pip >= (latest for your python dist)
+- git (latest)
+- aws-cli (latest)
+
+You will need:
+- aws mfa device arn
+- aws region
+- aws access key & secret access key
+- iam permissions to get sts token (usually included in mfa policy)
+- .aws/credentials file setup in accordance with direction below (use ```aws_mfa_device=<aws mfa device arn>``` in long term credentials section)
 
 Installation:
 -------------
-```sh
+```
 1. Clone this repo
-2. $ python -m pip install .
+2. python -m pip install .
+3. run 'aws-mfa --profile <profile from .aws/credentials> --region <aws region (us-gov-west-1 by default)>'
 ```
 
 Credentials File Setup
